@@ -1,0 +1,149 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+nav{
+    width: 100%;
+    height: 70px;
+    background-color: grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+nav .logo{
+    margin-left: 20px;    
+    height: 50px;
+    width: 50px;
+}
+nav form{
+    width: 40%;
+}
+.search-container {    
+    width: 100%;
+    display: flex;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+}
+
+nav li{
+    list-style: none;
+    text-decoration: none;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+}
+nav a:visited{
+    color: black;
+}
+nav a:hover{
+    color: white;
+}
+
+.product{
+    width: 80%;
+    margin: 50px 10%;
+    padding: 30px;
+
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.product .infos{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.product .infos .title{
+    font-size: 50px;
+    font-family: Impct, Haettenschweiler, 'Arial Narrow', sans-serif;
+}
+
+.product .infos .description h1{ 
+    font-size: 25px;
+    margin: 10px;
+}
+
+.product .infos .seller{
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    font-size: 10px;
+}
+
+.product .images{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.images .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.images .main img{
+    width: 90%;
+}
+.images .main .sliders{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    height: 40px;
+    width: 40px;
+    transition: all ease 0.5s;
+}
+.sliders:hover{
+    cursor: pointer;
+    font-size: larger;
+}
+
+#slideL{
+    top: 50%;   
+    left: 0;
+}
+#slideR{
+    top: 50%;   
+    right: 0;
+}
+
+

@@ -1,24 +1,64 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product name</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/product.css' %}">
+
 </head>
 <body>
     <nav>
+        <div class="logo">
+            <img src="" alt="Logo">
+        </div>
+        <form action="" method="GET">
+            <div class="search-container">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+            </div>
+        </form>
         <ul>
-            <li>
-                <a href="#">Page principal</a>
-                <a href="#">Panier</a>
-                <a href="#">Ajouter un Produit</a>
-                <a href="#">Profile</a>
-            </li>
+            <a href="#"><li>Page principal</li></a>
+            <a href="#"><li>Panier</li></a>
+            <a href="#"><li>Ajouter un Produit</li></a>
+            <a href="#"><li>Profile</li></a>
+            
         </ul>
-
-        
     </nav>
 
+    <div class="product">
+        <div class="infos">
+            <div class="title">
+                MSI GF 65
+            </div>  
+            <div class="description">
+                <h1>Description:</h1>
+                <p>The XYZ Ultrabook 2024 is a sleek and efficient laptop designed for everyday use. With its lightweight build and powerful performance, it's perfect for professionals, students, and anyone in need of a reliable computing companion. Featuring a vibrant 14-inch display and ample storage space, this laptop offers a comfortable viewing experience and enough room to store all your files and documents. With its extended battery life and comprehensive connectivity options, you can stay productive on the go without worrying about running out of power or losing connectivity. Whether you're working from home, attending virtual meetings, or enjoying multimedia entertainment, the XYZ Ultrabook 2024 delivers a seamless and enjoyable user experience.</p>
+            </div>
+            <div class="seller">
+                {% comment %} Seller : {{seller name}} {% endcomment %}
+                <br>
+                <a href="#">profile of the seller</a>
+            </div>
+        </div>
+        <div class="images">
+            <div class="main">
+                <div id="slideL" class="sliders">&#11164;</div>
+                <img src="" alt="">
+                <div id="slideR" class="sliders">&#11166;</div>
+            </div>
+            <div class="slideshow" hidden>
+                    <img src="{% static 'images/pic1.jpg' %}" class="slide">
+                    <img src="{% static 'images/pic2.jpg' %}" class="slide" >
+                    <img src="{% static 'images/pic3.jpg' %}" class="slide">
+                    <img src="{% static 'images/pic4.jpg' %}" class="slide">
+            </div>
+        </div>
+    </div>
 
+    <script src="{% static 'scripts/script.js' %}"></script>
 </body>
 </html>
