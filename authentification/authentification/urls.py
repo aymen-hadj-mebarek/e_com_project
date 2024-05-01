@@ -1,8 +1,8 @@
 """
-URL configuration for e_com project.
+URL configuration for authentification project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from auth_app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), 
+    path('', views.acceuil, name= 'acceuil'), #vide pour que cette page soit la page d'accueil du site
+    path('inscription/', views.inscription, name= 'inscription'), 
+    path('connexion/', views.connexion, name= 'connexion'),
+    path('deconnexion/', views.deconnexion, name= 'deconnexion'),
+    path('profile/', views.profile, name= 'profile'),
 ]
