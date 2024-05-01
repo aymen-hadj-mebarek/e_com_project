@@ -14,8 +14,8 @@ class Product(models.Model):
     def __str__(self):
         return "Product : " + self.name
     
-class Product_images(models.Model):
+class   Product_images(models.Model):
     id = models.IntegerField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="products_images/")
+    image = models.ImageField(upload_to="product_images/")
     

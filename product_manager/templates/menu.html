@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for post in posts %}
+    <a href="/products/product/{{post.id}}">{{post.name}}</a>
+    <br>
+    {% endfor %}
+    <img src="../../media/product_images/image.jpg" alt="Product Image">
+
+</body>
+</html>
