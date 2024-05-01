@@ -25,4 +25,7 @@ urlpatterns = [
     path('connexion/', views.connexion, name= 'connexion'),
     path('deconnexion/', views.deconnexion, name= 'deconnexion'),
     path('profile/', views.profile, name= 'profile'),
+    path('editProfile/', views.editProfile, name= 'editProfile'),
+    path('updatePassword/', views.updatePassword, name= 'updatePassword'),
+    path('uploadProfilePicture/', views.uploadProfilePicture, name= 'uploadProfilePicture'),
 ]

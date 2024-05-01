@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from .models import customer
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 import re
 
 
@@ -30,6 +31,7 @@ def inscription(request):
         birthdate = request.POST.get('birthdate')
         gender = request.POST.get('gender')
         email = request.POST.get('email')
+        adress = request.POST.get('adress')
         phonenumber = request.POST.get('phonenumber')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
@@ -82,6 +84,7 @@ def inscription(request):
                 lastname=lastname,
                 birthdate=birthdate,
                 gender=gender,
+                adress=adress,
                 email=email,
                 phonenumber=phonenumber,
                 description=description,
@@ -107,9 +110,13 @@ def connexion(request):
             messages.error(request, 'Nom d\'utilisateur ou mot de passe incorrect.') # message d'erreur
     return render(request, 'connexion.html') # sinon renvoi à la page de connexion avec un formulaire vide
 
+
+
 def deconnexion(request):
     logout(request)
     return redirect('acceuil')
+
+
 
 @login_required
 def profile(request):
@@ -118,3 +125,115 @@ def profile(request):
         customer_info = customer.objects.get(username=request.user.username)
         context['customer_info'] = customer_info
     return render(request, 'profile.html', context)
+
+
+@login_required
+def editProfile(request):
+    # Récupérez l'objet Customer existant ou renvoyez une erreur 404 si non trouvé
+    customer_instance = get_object_or_404(customer, username=request.user.username)
+    user = User.objects.get(username=request.user.username)
+
+    if request.method == "POST":
+        # Récupérez les données du formulaire depuis la requête POST
+        new_username = request.POST.get('username')
+        new_firstname = request.POST.get('firstname')
+        new_lastname = request.POST.get('lastname')
+        new_birthdate = request.POST.get('birthdate')
+        #new_gender = request.POST.get('gender')
+        new_adress = request.POST.get('adress')
+        new_email = request.POST.get('email')
+        new_phonenumber = request.POST.get('phonenumber')
+        new_description = request.POST.get('description')
+        
+        # Mettez à jour les champs de l'objet Customer
+        customer_instance.username = new_username
+        customer_instance.firstname = new_firstname
+        customer_instance.lastname = new_lastname
+        customer_instance.birthdate = new_birthdate
+        #customer_instance.gender = new_gender
+        customer_instance.adress = new_adress
+        customer_instance.email = new_email
+        customer_instance.phonenumber = new_phonenumber
+        customer_instance.description = new_description
+        
+        # Sauvegardez les modifications dans la base de données
+        customer_instance.save()
+        user.username = new_username
+        user.email = new_email
+        user.save()
+        
+        # Redirigez l'utilisateur vers une autre page ou affichez un message de réussite
+        return redirect('profile')
+    
+    # Si la méthode de la requête n'est pas POST, affichez le formulaire de modification avec les données du client existant
+    return render(request, 'editProfile.html', {'customer': customer_instance})
+
+
+@login_required
+def updatePassword(request):
+    if request.method == "POST":
+        password1 = request.POST.get('password1')  # Ancien mot de passe
+        password2 = request.POST.get('password2')  # Nouveau mot de passe
+        password3 = request.POST.get('password3')  # Confirmation du nouveau mot de passe
+
+        user = request.user  # Récupération de l'utilisateur actuellement connecté
+
+        # Initialisation de la variable pour vérifier toutes les contraintes
+        verification_passed = True
+
+        # Vérification que l'ancien mot de passe correspond au mot de passe actuel
+        if not user.check_password(password1):
+            messages.error(request, 'Veuillez saisir votre ancien mot de passe correctement.')
+            verification_passed = False
+
+        # Vérification que les nouveaux mots de passe correspondent
+        if password2 != password3:
+            messages.error(request, 'Veuillez saisir le même nouveau mot de passe.')
+            verification_passed = False
+
+        # Vérification de la taille du nouveau mot de passe
+        if len(password2) < 8:
+            messages.error(request, 'Le nouveau mot de passe doit contenir au moins 8 caractères.')
+            verification_passed = False
+
+        # Vérification des caractères spéciaux dans le nouveau mot de passe
+        if not re.search(r'[!@#$%^&*(),.?":{}\-_|]', password2):
+            messages.error(request, 'Le nouveau mot de passe doit contenir au moins un caractère spécial.')
+            verification_passed = False
+
+        # Vérification que le nouveau mot de passe ne soit pas identique au nom d'utilisateur
+        if password2 == user.username:
+            messages.error(request, 'Le nouveau mot de passe ne peut pas être identique au nom d\'utilisateur.')
+            verification_passed = False
+
+        # Si toutes les vérifications ont réussi, mettre à jour le mot de passe
+        if verification_passed:
+            user.set_password(password2)
+            user.save()
+            messages.success(request, 'Votre mot de passe a été mis à jour avec succès.')
+            return redirect('profile')
+
+    # Si la méthode n'est pas POST ou si une vérification a échoué, rendre la page updatepassword.html
+    return render(request, 'updatePassword.html')
+
+
+@login_required
+def uploadProfilePicture(request):
+    if request.method == "POST":
+        profile_picture = request.FILES.get('profile_picture')  # Récupérer le fichier téléchargé depuis le formulaire
+
+        # Vérifier si un fichier a été téléchargé
+        if profile_picture:
+            # Vérifier la taille de la photo de profil
+            if profile_picture.size > 5 * 1024 * 1024:  # 5 Mo (ajustez selon vos besoins)
+                messages.error(request, "La taille du fichier est trop grande. Veuillez choisir une photo de profil de moins de 5 Mo.")
+            else:
+                # Mettre à jour la photo de profil de l'utilisateur
+                request.user.picture = profile_picture
+                request.user.save()
+                messages.success(request, "La photo de profil a été mise à jour avec succès.")
+                return redirect('profile')
+        else:
+            messages.error(request, "Veuillez sélectionner une photo de profil valide.")
+
+    return render(request, 'uploadProfilePicture.html')

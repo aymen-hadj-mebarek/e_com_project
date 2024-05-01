@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updade profile</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+            <form method="post" action="{% url 'editProfile' %}"> <!--action : lien de la page qui reçoit les données envoyées par le formulaire-->
+                {% csrf_token %} <!--pour chiffré le formulaire-->
+                <label for="id_username">Nom d'utilisateur :</label>
+                <input type="text" id="id_username" name="username" value="{{ customer_info.username }}">
+    
+                <label for="id_firstname">Nom de famille :</label>
+                <input type="text" id="id_firstname" name="firstname" value="{{ customer_info.firstname }}">
+    
+                <label for="id_lastname">Prenom :</label>
+                <input type="text" id="id_lastname" name="lastname" value="{{ customer_info.lastname }}">
+    
+                <label for="id_birthdate">Date de naissance :</label>
+                <input type="date" id="id_birthdate" name="birthdate" value="{{ customer_info.birthdate }}">
+    
+                <label for="id_adress">Adresse :</label>
+                <input type="text" id="id_adress" name="adress" value="{{ customer_info.adress }}">
+    
+                <label for="id_email">Email :</label>
+                <input type="email" id="id_email" name="email" value="{{ customer_info.email }}">
+    
+                <label for="id_phonenumber">Numéro de téléphone :</label>
+                <input type="text" id="id_phonenumber" name="phonenumber" value="{{ customer_info.phonenumber }}">
+    
+                <label for="id_description">Description :</label>
+                <div class="center">
+                    <textarea id="id_description" name="description" value="{{ customer_info.description }}"></textarea>
+                </div>
+    
+                <button type="submit">Modifier le profile</button>
+            </form>
+        </div>
+    </div>
+    <style>
+        /* CSS */
+        /* Import Google font - Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100%;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 400px;
+            background: #ededed;
+            border-radius: 7px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container .form {
+            padding: 30px;
+        }
+
+        label {
+            padding: 10px 0;
+            color: #000000;
+            cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        a {
+            font-size: 16px;
+            color: #3cd7f3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            color: #fff;
+            background: #3cd7f3;
+            width: 100%;
+            padding: 10px;
+            font-size: 17px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        button:hover {
+            background: #35ceea;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .error {
+            background-color: red;
+            color: #fff;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;      
+            text-align: center; 
+        }
+        ul {
+            list-style: none;
+            color: red;
+        }
+        .center {
+            display: flex;
+            justify-content: center; /* Centrer horizontalement les éléments */
+            align-items: center; /* Centrer verticalement les éléments */
+            margin-bottom: 15px; /* Espacement entre les éléments */
+        }
+    </style>
+</body>
+</html>

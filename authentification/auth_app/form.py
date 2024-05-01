@@ -6,7 +6,7 @@ from  .models import *
 
 class CustomUserCreationForm(UserCreationForm):
     password1 = forms.CharField(
-        label='Password', 
+        label='Password',
         strip=False,
         widget=forms.PasswordInput(attrs={'autocomplete' : 'new-password'}),
     )
@@ -19,4 +19,4 @@ class CustomUserCreationForm(UserCreationForm):
     # personaliser les options du formulaire
     class Meta(UserCreationForm.Meta):
         model = customer
-        fields = ['username', 'firstname', 'lastname', 'password', 'birthdate', 'gender', 'email', 'phonenumber', 'picture', 'description', 'balance']
+        fields = ['username', 'firstname', 'lastname', 'password', 'birthdate', 'gender', 'adress', 'email', 'phonenumber', 'picture', 'description', 'balance']

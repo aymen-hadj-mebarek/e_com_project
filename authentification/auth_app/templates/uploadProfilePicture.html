@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Profile Picture</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Upload Profile Picture</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="id_profile_picture">Choose Profile Picture:</label>
+            <input type="file" id="id_profile_picture" name="profile_picture" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+
+</html>
