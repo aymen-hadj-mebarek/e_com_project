@@ -33,6 +33,7 @@ def inscription(request):
         phonenumber = request.POST.get('phonenumber')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
+        description = request.POST.get('description')
         
         # Validation de l'email
         try:
@@ -83,6 +84,7 @@ def inscription(request):
                 gender=gender,
                 email=email,
                 phonenumber=phonenumber,
+                description=description,
             )
             
             # Redirection vers la page de connexion après inscription réussie
