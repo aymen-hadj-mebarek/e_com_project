@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'product_manager.apps.ProductManagerConfig',
+    'auth_app.apps.AuthAppConfig', #Insérer le nom de l'application créer pour que Django la reconnaît
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
