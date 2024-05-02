@@ -46,18 +46,13 @@
         </div>
         <div class="images">
             <div class="main">
-                <div id="slideL" class="sliders">&#11164;</div>
-                <img src="1024.png" alt="">
-                <div id="slideR" class="sliders">&#11166;</div>
+                <button id="slideL" class="sliders">&#11164;</button>
+                    <img src="" alt="">
+                <button id="slideR" class="sliders">&#11166;</button>
             </div>
             <div class="slideshow" hidden>
                 {% for image in images %}
-                    <img src="{{ image.image.url }}" class="slide">
-                    <img src="/media/images/pic1.jpg" class="slide">
-                    <img src="/static/images/pic1.jpg" class="slide">
-                    <img src="{% static 'images/pic2.jpg' %}" class="slide" >
-                    <img src="{% static 'images/pic3.jpg' %}" class="slide">
-                    <img src="{% static 'images/pic4.jpg' %}" class="slide">
+                <img src="../..{{image.image.url}}" alt="" class="slide">
                 {% endfor %}    
             </div>
         </div>
