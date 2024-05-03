@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/editprofile.css'%}">
+    <title>Upload Profile Picture</title>
+</head>
+<body>
+<body>
+    <div class="container">
+        <div class="container">
+            <header> Changer Photo de profil</header>
+            <div class="img-container">
+                <img src="{{customer_info.imageURL}}" alt="picture" >
+                <h4>{{customer_info.username}}</h4>
+              </div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+            <input type="file" name="picture" id="id_picture">
+            <button type="submit">Add Image</button>
+            </form>
+            {% if messages %}
+            <ul class="errorlist">
+                {% for message in messages %}
+                <li class="error">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/new_prod.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="" alt="Logo">
+        </div>
+        <form action="" method="GET">
+            <div class="search-container">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <ul>
+            <a href="#"><li>Page principal</li></a>
+            <a href="#"><li>Panier</li></a>
+            <a href="#"><li>Ajouter un Produit</li></a>
+            <a href="#"><li>Profile</li></a>
+            
+        </ul>
+    </nav>
+
+    <form method="post" enctype="multipart/form-data">
+        <h2>Insert Images for the product</h2>
+        {% csrf_token %}
+        <table>
+            <input type="hidden" name="product_id" value="{{ product_id.id }}">
+            {{ form.as_table }}
+            <br>
+        </table>
+        <button type="submit">Add Image</button>
+    </form>
+
+
+</body>
+</html> 

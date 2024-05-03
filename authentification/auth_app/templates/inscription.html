@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+            <div class="form">
+                <form method="post" action="{% url 'inscription' %}"> <!--action : lien de la page qui reçoit les données envoyées par le formulaire-->
+                    {% csrf_token %} <!--pour chiffré le formulaire-->
+                    <h1>Inscription</h1>
+                    <!--{{ form.as_p }}-->
+                    <label for="id_username">Nom d'utilisateur :</label>
+                    <input type="text" id="id_username" name="username" required>
+
+                    <label for="id_firstname">Nom de famille :</label>
+                    <input type="text" id="id_firstname" name="firstname" required>
+
+                    <label for="id_lastname">Prenom :</label>
+                    <input type="text" id="id_lastname" name="lastname" required>
+
+                    <label for="id_birthdate">Date de naissance :</label>
+                    <input type="date" id="id_birthdate" name="birthdate" required>
+
+                    <label for="gender">Genre :</label>
+                    <div class="center">
+                        <select name="gender" id="gender">
+                            <option value="male">Homme</option>
+                            <option value="female">Femme</option>
+                        </select>
+                    </div>
+
+                    <label for="id_adress">Adresse :</label>
+                    <input type="adress" id="id_adress" name="adress" required>
+
+                    <label for="id_email">Email :</label>
+                    <input type="email" id="id_email" name="email" required>
+
+                    <label for="id_phonenumber">Numéro de téléphone :</label>
+                    <input type="text" id="id_phonenumber" name="phonenumber" required>
+
+                    <label for="id_password">Mot de passe :</label>
+                    <input type="password" id="id_password1" name="password1" required>
+                    <label for="id_password">Confirmation du Mot de passe :</label>
+                    <input type="password" id="id_password2" name="password2" required>
+
+                    <label for="id_description">Description :</label>
+                    <div class="center">
+                        <textarea id="id_description" name="description"></textarea>
+                    </div>
+
+                    <button type="submit">S'inscrire</button>
+                </form>                
+                <p class="link">Déjà inscrit ? <a href="{% url 'connexion' %}">Se connecter</a></p>
+                <p class="link"><a href="{% url 'acceuil' %}">Retour vers l'accueil</a></p>
+                {% if messages %}
+                <ul class="errorlist">
+                    {% for message in messages %}
+                        <li class="error">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>      
+    </div>
+    <style>
+        /* CSS */
+        /* Import Google font - Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100%;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 400px;
+            background: #ededed;
+            border-radius: 7px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container .form {
+            padding: 30px;
+        }
+
+        label {
+            padding: 10px 0;
+            color: #000000;
+            cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        a {
+            font-size: 16px;
+            color: #3cd7f3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            color: #fff;
+            background: #3cd7f3;
+            width: 100%;
+            padding: 10px;
+            font-size: 17px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        button:hover {
+            background: #35ceea;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .error {
+            background-color: red;
+            color: #fff;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;      
+            text-align: center; 
+        }
+        ul {
+            list-style: none;
+            color: red;
+        }
+        .center {
+            display: flex;
+            justify-content: center; /* Centrer horizontalement les éléments */
+            align-items: center; /* Centrer verticalement les éléments */
+            margin-bottom: 15px; /* Espacement entre les éléments */
+        }
+    </style>
+</body>
+</html>

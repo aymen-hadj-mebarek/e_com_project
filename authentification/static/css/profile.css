@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+/* Styles for profile page */
+*{
+  font-family:'Arial', 'serif';
+}
+/* Container styles */
+body {
+  background-color: #eee6fe; /* Remplacez cette couleur par celle de votre choix */
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%; /* Définissez la largeur maximale du conteneur */
+  max-height: 90%; /* Définissez la hauteur maximale du conteneur */
+  overflow:auto; /* Ajoutez une barre de défilement si le contenu dépasse la taille du conteneur */
+  padding: 20px; /* Ajouter un peu d'espace intérieur */
+  background-color: whitesmoke; /* Ajouter une couleur de fond */
+  border-radius : 20px; /* Ajouter une bordure arrondie */
+  box-shadow : 0 10px 20px #cbd0d8; /* Ajouter une ombre */
+}
+
+/* Styles for customer info section */
+.wrapper-customer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Ajouter un espace en bas */
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-container img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%; /* Rendre l'image ronde */
+  margin-bottom: 10px; /* Ajouter un espace sous l'image */
+}
+.button-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* Diviser en deux colonnes */
+  grid-gap: 10px; /* Ajouter un espace entre les éléments */
+}
+
+.btn-option {
+  margin: 5px 0; /* Ajouter un espace entre les boutons */
+  padding: 10px 20px; /* Ajouter un espace intérieur aux boutons */
+  border: none; /* Supprimer la bordure */
+  border-radius: 50px; /* Ajouter une bordure arrondie */
+  background-color: #f8bc67; /* Couleur de fond au survol */
+  color: black; /* Couleur du texte */
+  font-size: 20px; /* Taille de la police */
+  cursor: pointer; /* Curseur sur le bouton */
+}
+.btn-option a{
+  color:#333d51;
+}
+.container-btn{
+  display: flex;
+  flex-direction: row-reverse; 
+}
+#disconnect {
+  position: absolute;
+  top: 10px; /* Définir la distance depuis le haut de la page */
+}
+
+#disconnect button {
+  border-radius: 50px; /* Rendre le bouton rond en ajustant le rayon */
+}
+
+
+.right {
+  flex: 1; /* Permettre à cette partie de remplir l'espace restant */
+  margin-left: 120px; /* Ajouter un espace à gauche de la partie droite */
+}
+
+/* Styles for customer information */
+.info {
+  margin-top: 80px; /* Ajouter un espace au-dessus de la section d'information */
+}
+.info h4 {
+  font-family: 'Arial','Helvetica','sans-serif';
+  font-size: 30px; /* Taille de police pour les titres */
+}
+
+.info p {
+  font-size: 20px; /* Taille de police pour les paragraphes */
+  color:#333d51;
+}
+.info-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Diviser en deux colonnes */
+  grid-gap: 10px; /* Ajouter un espace entre les éléments */
+}
+
+.data {
+  border-bottom: 1px solid #ccc; /* Ajouter une ligne de séparation entre les éléments */
+  padding-bottom: 10px; /* Ajouter un peu d'espace en bas */
+}
+
+.description {
+  grid-column: 1 / span 2; /* Fusionner sur deux colonnes */
+}
+.description h4 {
+  text-align: center; /* Centrer le texte */
+}
+/* Styles for product table */
+.wrapper-customer-products .title {
+  text-align: center; /* Centrer le texte du titre "Produits" */
+  padding: 10px; /* Ajouter un espace intérieur pour un meilleur aspect */
+  font-weight: bold; /* Mettre le titre en gras */
+    
+}
+.wrapper-customer-products table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Ajouter un espace au-dessus du tableau */
+}
+
+.wrapper-customer-products th,
+.wrapper-customer-products td {
+
+  padding: 8px; /* Ajouter un remplissage à chaque cellule */
+  border-bottom: 1px solid #ccc; /* Ajouter une bordure autour des cellules */
+  text-align: center; /* Aligner le texte au centre */
+
+}
+
+
+
+.wrapper-customer-products tbody tr:hover {
+  background-color: #f5f5f5; /* Ajouter une couleur de fond au survol */
+}
+
+.wrapper-customer-products td:last-child {
+  text-align: center; /* Centrer le texte dans la dernière colonne */
+}
+
+.wrapper-customer-products a {
+  text-decoration: none; /* Supprimer la décoration du lien */
+  color: #333; /* Couleur du texte du lien */
+}
+
+.wrapper-customer-products a:hover {
+  text-decoration: underline; /* Souligner le lien au survol */
+}
+

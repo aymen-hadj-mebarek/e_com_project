@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+    <title>Profile </title>
+</head>
+<body>
+  <div class="container"> <!-- Main container -->
+    <div class="container-btn">
+      <button class="btn-option " id="disconnect"><a href="{% url 'deconnexion'%}">DECONNEXION</a></a></button>
+    </div>
+    <div class="wrapper-customer-info"> <!--contains user info -->
+      <div class="left"> <!-- contains profile picture and username-->
+          <div class="img-container">
+            <img src="{{customer_info.imageURL}}" alt="customer" width="50">
+            <h4>{{customer_info.username}}</h4>
+          </div>
+          <div class="button-container">  <!-- lien vers les pages (modifier le profile , modifier mot de passe )-->
+            <button class="btn-option"><a href="{% url 'uploadProfilePicture'%}">changer la photo de profile</a></button>
+            <button class="btn-option"><a href="{% url 'editProfile'%}">modifier le profile</a></button>
+            <button class="btn-option"><a href="{% url 'updatePassword'%}">modifier le mot de passe</a></button>
+            <button class="btn-option"><a href="{% url 'new_product'%}">Ajouter le produit</a></button>
+          </div>
+      </div>
+      <div class="right"> <!-- contains customer info(full name , email , phone .....)-->
+        <div class="info">
+          <h2>Information</h2>
+          <br><br>
+           <div class="info-data">
+              <div class="data">
+                <h4>Nom de Famille</h4>
+                <p>{{customer_info.firstname}}</p>
+              </div>
+              <div class="data">
+                <h4>Prénom</h4>
+                <p>{{customer_info.lastname}}</p>
+              </div>
+              <div class="data">
+                <h4>Adresse</h4>
+                <p>{{customer_info.adress}}</p>
+              </div>
+              <div class="data">
+                <h4>Email</h4>
+                <p>{{customer_info.email}}</p>
+              </div>
+              <div class="data">
+                <h4>Téléphone</h4>
+                <p>{{customer_info.phonenumber}}</p>
+              </div>
+              <div class="data description" style="">
+                <h4>Description</h4>
+                <p>{{customer_info.description}}</p>
+              </div>
+           </div>
+        </div>
+     </div> 
+     
+    </div>
+    <div class="wrapper-customer-products"> <!--contains user  products -->
+      <div class="title">
+        <h2> Mes Produits   </h2>
+      </div>
+      <div class="products-list">
+        <table>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Catégorie</th>
+              <th>Quantité</th>
+              <th>Prix</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+            <tr>
+              <td>{{ product.name }}</td>
+              <td><!--{{ product.category }}--></td>
+              <td>{{ product.quantity }}</td>
+              <td>{{ product.price }} DA </td>
+              <td><button class="btn-option"><a href="">Voir</a></button></td>
+            </tr>
+             {%endfor%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
