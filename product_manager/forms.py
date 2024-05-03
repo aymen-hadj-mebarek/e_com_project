@@ -4,7 +4,7 @@ from .models import Product, Product_images
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'description', 'quantity', 'price']
+        fields = ['name', 'description', 'quantity','category', 'price']
         widgets = {
             'description': forms.Textarea(attrs={'rows': 4}),  # Use a textarea widget for the description field
         }
@@ -12,6 +12,7 @@ class ProductForm(forms.ModelForm):
             'name': ('Nom'),  
             'description': ('Description'),  
             'quantity': ('Quantité'),  
+            'category': ('Categorie'),  
             'price': ('Prix')  
         }
 
