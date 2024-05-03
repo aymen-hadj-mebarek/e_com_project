@@ -29,37 +29,35 @@
         </ul>
     </nav>
     <div id="prod_id" hidden>{{product.id}}</div>
-    
     <div class="product">
         <div class="infos">
-            <table>
-                <tr>
-                    <td>Title : </td>
-                    <td>{{ product.name }}</td>
-                </tr>
-                <tr>
-                    <td>Description : </td>
-                    <td>{{ product.description }}</td>
-                </tr>
-                <tr>
-                    <td>Category : </td>
-                    <!-- <td>{{ product.category }}</td> -->
-                    <td>product.category</td>
-                </tr>
-                <tr>
-                    <td>Quantity left : </td>
-                    <td>{{ product.quantity }}</td>
-                </tr>
-                <tr>
-                    <td>Price : </td>
-                    <td>{{ product.price }}</td>
-                </tr>
-                <tr>
-                    <td>Seller : </td>
-                    <td><a href="#">{{ product.name }}</a>  </td>
-                </tr>
+                <div class="attribute">
+                    <span>Title : </span>
+                    <span>{{ product.name }}</span>
+                </div>
+                <div class="attribute">
+                    <span>Description : </span>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita molestiae velit laboriosam vero quas ut ullam consequatur dolore iste, dolores explicabo consequuntur vitae excepturi fugiat, rem fugit maxime ab assumenda!</span>
+                </div>
+                <div class="attribute">
+                    <span>Category : </span>
+                    <span>{{ product.category }}</span>
+                </div>
+                <div class="attribute">
+                    <span>Quantity left : </span>
+                    <span>{{ product.quantity }}</span>
+                </div>
+                <div class="attribute">
+                    <span>Price : </span>
+                    <span>{{ product.price }}</span>
+                </div>
+                <div class="attribute">
+                    <span>Seller : </span>
+                    <span><a href="#">{{ product.name }}</a>  </span>
+                </div>
 
-            </table>
+
+           
 
         </div>
         <div class="images">
@@ -79,7 +77,14 @@
                 <img src="../..{{image.image.url}}" alt="" class="slide">
                 {% endfor %}    
             </div>
+
+            
+            <div class="buttons">
+                <a href="/buy">Buy Item</a>
+                <a href="/add_cart">Add to cart</a>
+            </div>
         </div>
+        
     </div>
 
     <script src="{% static 'scripts/script.js' %}"></script>

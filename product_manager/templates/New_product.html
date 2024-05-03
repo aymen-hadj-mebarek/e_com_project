@@ -2,42 +2,48 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/new_prod.css' %}">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajout Produit</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/new_prod.css' %}"
+    />
+  </head>
+  <body>
     <nav>
-        <div class="logo">
-            <img src="" alt="Logo">
-        </div>
-        <form action="" method="GET">
-            <div class="search-container">
-                <input type="text" name="query" placeholder="Search...">
-                <button type="submit">Search</button>
-            </div>
-        </form>
-        <ul>
-            <a href="#"><li>Page principal</li></a>
-            <a href="#"><li>Panier</li></a>
-            <a href="#"><li>Ajouter un Produit</li></a>
-            <a href="#"><li>Profile</li></a>
-            
-        </ul>
+      <div class="logo">
+        <img src="" alt="Logo" />
+      </div>
+      
+      <ul>
+        <a href="#"><li>Page principal</li></a>
+        <a href="#"><li>Panier</li></a>
+        <a href="#"><li>Ajouter un Produit</li></a>
+        <a href="#"><li>Profile</li></a>
+      </ul>
     </nav>
-
-    <form method="post" enctype="multipart/form-data">
-        <h2>New Product</h2>
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-            <br>
-        </table>
-        <button type="submit">Add Product</button>
-    </form>
-
-
-</body>
+    <div class="container">
+      <div class="progress-bar">
+        <div class="progress" style="width: 40%">
+            <span class="progress-text text-1">Ajout des informations</span>
+            <span class="progress-text text-2">Ajout des images</span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content:center; align-items: center;">
+          <form method="post" enctype="multipart/form-data">
+            <h2>Nouveau Produit</h2>
+            {% csrf_token %}
+            <table>
+              {{ form.as_table }}
+              <br />
+            </table>
+            <button type="submit">Ajouter un Produit</button>
+          </form>
+          <img src="{% static 'images/background.jpg' %}" alt="no image">
+      </div>
+    </div>
+  </body>
 </html>

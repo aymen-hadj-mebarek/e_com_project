@@ -8,6 +8,13 @@ class ProductForm(forms.ModelForm):
         widgets = {
             'description': forms.Textarea(attrs={'rows': 4}),  # Use a textarea widget for the description field
         }
+        labels = {
+            'name': ('Nom'),  
+            'description': ('Description'),  
+            'quantity': ('Quantité'),  
+            'price': ('Prix')  
+        }
+
 
 class ProductImageForm(forms.ModelForm):
     class Meta:

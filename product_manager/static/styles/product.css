@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: #EAE7F8;
+}
 nav{
     width: 100%;
     height: 70px;
@@ -71,7 +74,9 @@ nav a:hover{
     width: 80%;
     margin: 50px 10%;
     padding: 30px;
-
+    background-color: #EDE2FF;
+    border: solid white;
+    border-radius: 30px;
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -106,8 +111,8 @@ nav a:hover{
 .product .images{
     width: 45%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: center;    
+    justify-content: space-evenly;
     flex-direction: column;
     padding: 10px;
 }
@@ -148,37 +153,51 @@ nav a:hover{
     right: 0;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  td:first-child {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  tr:hover {
-    background-color: #f5f5f5;
-  }
-  
-  th {
-    background-color: #333;
-    color: white;
-  }
-  
-  a {
+.attribute{
+    border: solid;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.attribute span:first-child{ 
+    width: 40%;
+    border-right: white solid;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attribute span:last-child{    
+    padding: 10px 20px;
+    width: 70%;
+}
+
+.attribute span a{    
+    color: black;
     text-decoration: none;
-    color: #007bff;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
+}
+
+.buttons{
+    margin-top: 30px;
+}
+
+.buttons a{
+    margin: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #FEB963;
+    border: solid white;
+    color: white;
+    text-decoration: none;
+    transition: all ease 0.5s;
+}
+
+.buttons a:hover{
+    font-size: 105%;
+    transition: all ease 0.5s;
+}

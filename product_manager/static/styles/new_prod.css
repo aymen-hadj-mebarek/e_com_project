@@ -8,19 +8,74 @@ body, h1, h2, h3, p, ul, li {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f8f8f8;
+    background-color: #EAE7F8;
     color: #333;
 }
 
 /* Navigation styles */
-nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
+nav{
+    width: 100%;
+    height: 70px;
+    background-color: grey;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: center;   
 }
+nav .logo{
+    margin-left: 20px;    
+    height: 50px;
+    width: 50px;
+}
+nav #nav_form{
+    width: 40%;
+}
+.search-container {    
+    width: 100%;
+    display: flex;
+}
+
+#nav_form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+#nav_form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#nav_form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+}
+
+nav li{
+    list-style: none;
+    text-decoration: none;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+}
+nav a:visited{
+    color: black;
+}
+nav a:hover{
+    color: white;
+}   
 
 .logo img {
     max-width: 100px;
@@ -54,18 +109,29 @@ ul li {
     display: inline;
     margin-right: 10px;
 }
+.container{
+    width: 80%;
+    margin: 50px 10%;
+    padding: 30px;
+    background-color: #EDE2FF;
+    border: solid white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+}
 
 /* Form styles */
 form {
     max-width: 500px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 30px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     align-items: center;
     text-align: center;
-
 }
 
 form h2 {
@@ -73,37 +139,83 @@ form h2 {
 }
 
 form table {
-    width: 100%;
+    width: 100%;    
+
 }
 
-form table th, form table td {
-    padding: 10px 0;
-}
 
 form table th {
-    width: 30%;
-    text-align: right;
+    width: 25%;
+    text-align: left;
 }
 
 form input[type="text"],
 form textarea,
 form input[type="number"] {
-    width: calc(100% - 120px);
+    resize: none;
+    width: 70%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    text-align: left;
 }
 
-form button[type="submit"] {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+form button[type="submit"]{
+    margin: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #FEB963;
+    border: solid white;
+    color: white;
+    text-decoration: none;
+    transition: all ease 0.5s;
 }
 
-form button[type="submit"]:hover {
-    background-color: #45a049;
+form button[type="submit"]:hover{
+    background-color: rgb(197, 139, 69);
+    font-size: 105%;
+    transition: all ease 0.5s;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .progress {
+    height: 35px;
+    background-color: #FEB963;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  .progress-text {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+  }
+  .text-1{
+    top: 50%;
+    left: 50%;
+  }
+  .text-2{
+    color: rgb(130, 130, 130);
+    top: 50%;
+    right: -100%;
+
+  }
+.image{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img{
+    width: 80%;
+    border-radius: 30px;
 }
