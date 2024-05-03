@@ -10,7 +10,7 @@ class Product(models.Model):
     quantity = models.IntegerField()
     price = models.IntegerField()
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+    # category = models.CharField(max_length=20)    
     def __str__(self):
         return "Product : " + self.name
     

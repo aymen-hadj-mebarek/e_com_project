@@ -28,27 +28,51 @@
             
         </ul>
     </nav>
-
+    <div id="prod_id" hidden>{{product.id}}</div>
+    
     <div class="product">
         <div class="infos">
-            <div class="title">
-                {{product.name}}
-            </div>  
-            <div class="description">
-                <h1>Description:</h1>
-                <p>{{product.description}}</p>
-            </div>
-            <div class="seller">
-                 Seller : {{product.seller}} 
-                <br>
-                <a href="#">profile of the seller</a>  
-            </div>
+            <table>
+                <tr>
+                    <td>Title : </td>
+                    <td>{{ product.name }}</td>
+                </tr>
+                <tr>
+                    <td>Description : </td>
+                    <td>{{ product.description }}</td>
+                </tr>
+                <tr>
+                    <td>Category : </td>
+                    <!-- <td>{{ product.category }}</td> -->
+                    <td>product.category</td>
+                </tr>
+                <tr>
+                    <td>Quantity left : </td>
+                    <td>{{ product.quantity }}</td>
+                </tr>
+                <tr>
+                    <td>Price : </td>
+                    <td>{{ product.price }}</td>
+                </tr>
+                <tr>
+                    <td>Seller : </td>
+                    <td><a href="#">{{ product.name }}</a>  </td>
+                </tr>
+
+            </table>
+
         </div>
         <div class="images">
             <div class="main">
+                {% if L == 0 %}
+                <img src="../../media/product_images/no_image.jpg" alt="">
+                {% elif L == 1 %}
+                <img src="" alt="">
+                {% else %}
                 <button id="slideL" class="sliders">&#11164;</button>
-                    <img src="" alt="">
+                <img src="" alt="">
                 <button id="slideR" class="sliders">&#11166;</button>
+                {% endif %}
             </div>
             <div class="slideshow" hidden>
                 {% for image in images %}

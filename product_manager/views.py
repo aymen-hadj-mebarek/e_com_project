@@ -10,11 +10,7 @@ from .models import Product_images, Product
 def product(request,id):
     prod = Product.objects.get(id = id)
     images = Product_images.objects.filter(product = prod)
-    for i in images:
-        print("================================================")
-        print(i.image.url)
-        print("================================================")
-    return render(request,"product.html", {'product':prod, 'images':images})
+    return render(request,"product.html", {'product':prod, 'images':images, 'L': len(images)})
 
 
 def new_product(request):
@@ -29,23 +25,22 @@ def new_product(request):
         request.session["id"] = Product.objects.count()
         
         return redirect("new_product_image")
-        # return render(request, 'new_image.html', {'form': form_image})
     else:
         form = ProductForm()
         return render(request, 'New_product.html', {'form': form})
-
+    
+    
 def new_product_image(request):
     if request.method == 'POST':
         form = ProductImageForm(request.POST, request.FILES)
-        if form.is_valid() :
-            image = form.save(commit=False)
-            image.product = Product.objects.get(id=request.session.get('id'))
-            image.save()
-            return render(request, 'product.html')
-        else:        
-            print("shit")    
+        if form.is_valid():
+            for img in request.FILES.getlist('image'):
+                image = Product_images(product=Product.objects.get(id=request.session.get('id')), image=img)
+                image.save()
+                
+            return redirect('menu')  # Redirect to product detail page or any other page
+        else:
             return render(request, 'new_image.html', {'form': form})
-
     else:
         form = ProductImageForm()
         return render(request, 'new_image.html', {'form': form})
