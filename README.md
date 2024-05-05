@@ -4,6 +4,7 @@ projet application web de module e_com SII 2024
 
 # HOW TO RUN THE APP : 
 // if app is not initialized, you need to run the commands : 
+
     - python manage.py makemigrations
     - python manage.py migrate
 
