@@ -286,7 +286,7 @@ def forgetPassword(request):
             msg = EmailMessage(
                 "BoutiqueExpress - Récupération de mot de passe", # l'objet du mail
                 html_text,
-                "NISCG <yasminearbadji02@gmail.com>", # sender
+                "NISCG <boutiqueXpress@gmail.com>", # sender
                 [user.email], # receiver
             )
             msg.content_subtype = "html"
