@@ -1,0 +1,75 @@
+{% load static %}
+{% load customtags %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceuil</title>
+    <link rel="stylesheet" href="{% static 'mangalib/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-lr2ezfoIVYJJo2Ia7eT5XpObvqewMKlWGkzG+9cXl+x6/25h7RGT1prwUf7+qDBywF3qm0UgQ2p9eb7xqWwhMw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../../../static/mangalib/js/produit.js"></script>
+</head>
+    
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul class="nav-container menu-grid">
+            <div class="site-name-logo-container">
+                <a href="#"><i class="fa fa-search" style='font-size:20px'></i></a>
+                <a class="site-ecom-name" href="{% url 'mangalib:index'%}">BoutiqueXPress</a>
+            </div>
+         
+            
+            <form action="" class="search-form">
+                <div class="search-bar-container">
+                    <div class="container-input">
+                        <input type="text" placeholder="Rechercher votre produit....">
+                    </div>
+                  
+                        <div class="bloc-search">
+                            <p class="search-now">Search now</p>
+                        </div>
+                </div>
+            </form>
+        
+            <div class="online-shop">
+                <h1 class="online">ONLINE<span class="shop"> SHOP</span></h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae eum quas debitis, magni neque eveniet minus soluta dolorum</p>
+            </div>
+        
+            <div class="img"></div>
+
+            <ul class="nav-child-container">
+                <li class="li-icon-count">
+                    <a href="{% url 'mangalib:panier' %}" class="containe-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <!-- <span class="count">0</span> -->
+                    </a>
+                </li>
+               
+                </li>
+              
+                <li class="li-contact"><a href="#" class="contact">Contact</a></li>       
+                <li class="li-connect"><a href="{% url 'connexion'%}" class="connect">Se connecter</a></li>
+                <div class="parent-sign-up">
+                    <li class="sign-up-container"><a href="{% url 'inscription'%}" class="sign-up">S'authentifier</a></li> 
+                </div>
+         
+       
+            
+            </ul>
+
+        </ul>
+
+     
+        
+    </nav>
+ 
+   
+    
+</header>

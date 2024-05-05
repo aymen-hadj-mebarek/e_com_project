@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un produit</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/modif_prod.css' %}">
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="" alt="Logo">
+        </div>
+        <ul>
+            <a href="#"><li>Page principal</li></a>
+            <a href="#"><li>Panier</li></a>
+            <a href="#"><li>Ajouter un Produit</li></a>
+            <a href="#"><li>Profile</li></a>
+            
+        </ul>
+    </nav>
+    <div id="prod_id" hidden>{{product.id}}</div>
+    <div class="product">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <table>
+                {{ form.as_table }}
+                <br />
+              </table>
+              <button type="submit">Modifier Produit</button>
+            </form>
+        <div class="images">
+                {% for image in images %}
+                <div class="image">
+                  
+                  <div class="minislide"><img src="../..{{image.image.url}}" alt="NONE" ></div>
+                  <button class="buttons"><a href="/product_manager/del_image/{{image.id}}">Supprimer</a></button>
+                </div>
+                {% endfor %}   
+
+                <button class="buttons"><a href="/product_manager/add_image/{{product.id}}">Ajouter des images au produit</a></button>
+
+
+            </div>
+        
+    </div>
+
+</body>
+</html>

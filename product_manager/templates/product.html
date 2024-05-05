@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product name</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/product.css' %}">
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="" alt="Logo">
+        </div>
+        <form action="" method="GET">
+            <div class="search-container">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <ul>
+            <a href="#"><li>Page principal</li></a>
+            <a href="#"><li>Panier</li></a>
+            <a href="#"><li>Ajouter un Produit</li></a>
+            <a href="#"><li>Profile</li></a>
+            
+        </ul>
+    </nav>
+    <div id="prod_id" hidden>{{product.id}}</div>
+    <div class="product">
+        <div class="infos">
+                <div class="attribute">
+                    <span>Title : </span>
+                    <span>{{ product.name }}</span>
+                </div>
+                <div class="attribute">
+                    <span>Description : </span>
+                    <span>{{ product.description }}</span>
+                </div>
+                <div class="attribute">
+                    <span>Category : </span>
+                    <span>{{ product.category }}</span>
+                </div>
+                <div class="attribute">
+                    <span>Quantity left : </span>
+                    <span>{{ product.quantity }}</span>
+                </div>
+                <div class="attribute">
+                    <span>Price : </span>
+                    <span>{{ product.price }}</span>
+                </div>
+                <div class="attribute">
+                    <span>Seller : </span>
+                    <span><a href="#">{{ product.seller }}</a>  </span>
+                </div>
+
+
+           
+
+        </div>
+        <div class="images">
+            <div class="main">
+                {% if L == 0 %}
+                <img src="../../media/product_images/no_image.jpg" alt="">
+                {% elif L == 1 %}
+                <img src="" alt="">
+                {% else %}
+                <button id="slideL" class="sliders">&#11164;</button>
+                <img src="" alt="">
+                <button id="slideR" class="sliders">&#11166;</button>
+                {% endif %}
+            </div>
+            <div class="slideshow" hidden>
+                {% for image in images %}
+                <img src="../..{{image.image.url}}" alt="" class="slide">
+                {% endfor %}    
+            </div>
+
+            
+            {% if T == 1 %}
+            <div class="buttons">
+                <a href="/product_manager/delete_product/{{product.id}}">Supprimer</a>
+                <a href="/product_manager/modify_product/{{product.id}}">Modifier</a>
+            </div>
+            {% else %}
+            <div class="buttons">
+                <a href="/buy">Buy Item</a>
+                <a href="/add_cart">Add to cart</a>
+            </div>
+            {% endif %}
+        </div>
+        
+    </div>
+
+    <script src="{% static 'scripts/script.js' %}"></script>
+</body>
+</html>

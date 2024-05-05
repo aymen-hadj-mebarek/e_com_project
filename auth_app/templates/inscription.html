@@ -1,0 +1,118 @@
+{% load static %}
+{% load customtags %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceuil</title>
+    <link rel="stylesheet" href="{% static 'mangalib/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-lr2ezfoIVYJJo2Ia7eT5XpObvqewMKlWGkzG+9cXl+x6/25h7RGT1prwUf7+qDBywF3qm0UgQ2p9eb7xqWwhMw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../../../static/mangalib/js/produit.js"></script>
+</head>
+    
+</head>
+<header>
+    <nav>
+        <ul>
+            <li></li>
+            <li></li>
+            <li> </li>
+            <li> </li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <main class="auth-container">
+        <div class="img-insc-container">
+        </div>
+       
+        <section class="submit-container">
+            <h1>Inscription</h1>
+            <p class="text">Créer votre compte rapidement</p>
+            <form method="post" action="{% url 'inscription' %}">
+                {% csrf_token %} <!--pour chiffré le formulaire-->
+
+                {% if messages %}
+                <ul class="errorlist">
+                    {% for message in messages %}
+                        <li class="error">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <br>
+
+                <div class="info-user-container">
+                    <p>Prénom</p>
+                    <p>Nom</p>
+                </div>
+               
+        
+                <input type="text" name="lastname" class="info-input" placeholder="Votre prénom" required>
+                <input type="text" name="firstname" placeholder="Votre nom" required>
+
+               
+                <div class="info-user-container-special">
+                    <p>Nom d'utilisateur</p>
+                </div>
+                <input type="text" class="info-input" name="username" placeholder="Votre nom d'utilisateur" required>
+
+                <div class="info-user-container-special">
+                    <p>Mot de passe</p>
+                    <p>Confirmation de Mot de passe</p>
+                </div>
+                <input type="password" name="password1" placeholder="Votre mot de passe" required>
+                <input type="password" name="password2" placeholder="Confirmer mot de passe" required>
+
+
+
+                <div class="info-user-container-pwd">
+                    <p>Adresse e-mail</p>
+                    <p>Numéro de téléphone</p>
+                </div>
+                <input type="email" class="info-input" name="email" placeholder="Votre adresse e-mail" required>
+                <input type="text" class="" name="phonenumber" placeholder="Votre numéro de téléphone" required>
+                <div class="info-user-container">
+                    <p>Date de naissance</p>
+                    <p>Sexe</p>
+                </div>
+                <input type="date" name="birthdate" class="info-input" required>
+                <select name="gender" id="gender" class="select-sexe">
+                    <option value="male">Homme</option>
+                    <option value="female">Femme</option>
+                </select>
+
+                <div class="info-user-container">
+                    <p>Adresse</p>
+                </div>
+                <input type="text" name="adress" class="info-input" placeholder="Votre adresse" required>
+
+                <p class="desc">Description</p>
+                <textarea name="description" rows="7" cols="60" class="my-text-area">Votre description</textarea>
+   
+              
+                <p class="space">En vous inscrivant, vous acceptez les conditions générales d'tilisation et la politique de confidentialité de BoutiqueXPress.</p>
+                <div class="info-user-container">
+                    <p> <input type="checkbox" >
+                    Je participe à l'aventure BoutiqueXPress.</p>
+                </div>
+                <div class="container-btn-forgetpwd">
+                    <input type="submit" value="S'inscrire" class="sub">
+                </div>
+
+                <div class="centerthis">
+                    <p class="link">Déjà inscrit ? <a href="{% url 'connexion' %}">Se connecter</a></p>
+                    <p class="pad"></p>
+                    <p class="link"><a href="{% url 'mangalib:index' %}">Retour vers BoutiqueXPress</a></p>
+                </div>
+            
+            </form>
+        </section>
+    </main>
+</body>
+
+
+{% include 'mangalib/includes/end_page.htm' %}

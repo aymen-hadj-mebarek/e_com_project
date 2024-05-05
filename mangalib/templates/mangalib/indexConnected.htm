@@ -1,0 +1,67 @@
+{% include 'mangalib/includes/begin_page_connected.htm' %}
+
+
+
+    
+
+   <section class="best-items">
+    <h1 class="best-items-title">Nos Produits</h1>
+
+
+        <div class="best-item">
+            {% for i in prods %}
+                <a class="flex-item box" href="{%url 'mangalib:show' i.id%}" style="background-image: url(../../..{{i.media}});">
+                    <div class="item-details">
+                        <p class="item-name no-grid">{{i.name}}</p>
+                        <p class="item-price no-grid">{{i.price}}</p>
+                    </div>
+                </a>  
+            {% endfor %}       
+        </div>
+        <!-- {{prods.0.name}} -->
+   </section>
+
+   <div class="services">
+    <div class="service-item">
+        <i class='fas fa-store-alt' style='font-size:36px'></i>
+        <p class="icon-paragraph">Nos magasins à votre service</p>
+    </div>
+
+    <div class="service-item">
+            <i class='fas fa-store-alt' style='font-size:36px'></i>
+            <p class="icon-paragraph">Store icon</p>
+        </div>
+
+        <div class="service-item">
+            <i class='fas fa-store-alt' style='font-size:36px'></i>
+            <p class="icon-paragraph">Store icon</p>
+        </div>  
+    </div>
+
+   <section class="section2-items">
+    
+        <h1 class="best-items-title">Nos livres</h1>
+        <div class="item-grid">
+            <a class="item-grid1 item-box" href="{%url 'mangalib:show' prods.0.id%}" style="background-image: url(../../..{{prods.0.media}});">
+                <div class="item-details">
+                    <p class="item-name no-grid">{{prods.0.name}}</p>
+                    <p class="item-price no-grid">{{prods.0.price}}</p>
+                </div>
+            </a>
+            <a class="item-grid2 item-box" href="{%url 'mangalib:show' prods.1.id%}" style="background-image: url(../../..{{prods.1.media}});">
+                <div class="item-details">
+                    <p class="item-name no-grid">{{prods.1.name}}</p>
+                    <p class="item-price no-grid">{{prods.1.price}}</p>
+                </div>
+            </a>
+            <a class="item-grid3 item-box" href="{%url 'mangalib:show' prods.2.id%}" style="background-image: url(../../..{{prods.2.media}});">
+                <div class="item-details">
+                    <p class="item-name no-grid">{{prods.2.name}}</p>
+                    <p class="item-price no-grid">{{prods.2.price}}</p>
+                </div>
+            </a>
+        </div>
+    
+   </section>
+{% include 'mangalib/includes/end_page.htm' %}
+

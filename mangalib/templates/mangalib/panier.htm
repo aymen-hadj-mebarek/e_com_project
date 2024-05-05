@@ -1,0 +1,48 @@
+{% include 'mangalib/includes/begin_page.htm' %}
+
+  <div class="panier-bloc">
+    <div class="panier-titles-container">
+      <p>Produit</p>
+      <p>Quantité</p>
+      <p>Total</p>
+    </div>
+
+    <div class="panier-list">
+      <div class="panier-list-element">
+          <div class="img-infos-container">
+            <img class="panier-product-img">
+            <ul class="product-infos">
+              <li>t shirt proffesionel hh</li>
+              <li>Prix</li>
+              <a href="">Supprimer</a>
+            </ul>
+          </div>
+        
+          <input type="number" name="quantite" value="1">
+          <p class="total-price">500da</p>
+      </div>
+
+      <div class="panier-list-element">
+        <div class="img-infos-container">
+          <img class="panier-product-img">
+          <ul class="product-infos">
+            <li>t shirt proffesionel hh</li>
+            <li>Prix</li>
+            <a href="">Supprimer</a>
+          </ul>
+        </div>
+      
+        <input type="number" name="quantite" value="1">
+        <p class="total-price">500da</p>
+    </div>
+    
+    <div class="panier-result-container">
+      <div class="line"></div>
+      <div class="result">
+        <p>Sous total</p>
+        <p>25000 Da</p>
+      </div>
+    </div>
+  </div>
+  
+{% include 'mangalib/includes/end_page.htm' %}

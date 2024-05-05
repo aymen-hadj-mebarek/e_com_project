@@ -1,0 +1,243 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #EAE7F8;
+}
+nav{
+    width: 100%;
+    height: 70px;
+    background-color: grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+nav .logo{
+    margin-left: 20px;    
+    height: 50px;
+    width: 50px;
+}
+nav table{
+    width: 40%;
+}
+.search-container {    
+    width: 100%;
+    display: flex;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+button[type="submit"] {
+    margin: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #FEB963;
+    border: solid white;
+    color: white;
+    text-decoration: none;
+    transition: all ease 0.5s;
+}
+
+button[type="submit"]:hover {
+    background-color: rgb(197, 139, 69);
+    font-size: 105%;
+    transition: all ease 0.5s;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+}
+
+nav li{
+    list-style: none;
+    text-decoration: none;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+}
+nav a:visited{
+    color: black;
+}
+nav a:hover{
+    color: white;
+}
+
+.product{
+    width: 80%;
+    margin: 50px 10%;
+    padding: 30px;
+    background-color: #EDE2FF;
+    border: solid white;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.product .infos{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.product .infos .title{
+    font-size: 50px;
+    font-family: Impct, Haettenschweiler, 'Arial Narrow', sans-serif;
+}
+
+.product .infos .description h1{ 
+    font-size: 25px;
+    margin: 10px;
+}
+
+.sliders:hover{
+    cursor: pointer;
+    font-size: larger;
+}
+
+#slideL{
+    top: 50%;   
+    left: 0;
+}
+#slideR{
+    top: 50%;   
+    right: 0;
+}
+
+.attribute{
+    border: solid;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.attribute span:first-child{ 
+    width: 40%;
+    border-right: white solid;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attribute span:last-child{    
+    padding: 10px 20px;
+    width: 70%;
+}
+
+.attribute span a{    
+    color: black;
+    text-decoration: none;
+}
+
+.buttons{
+    margin-top: 30px;
+    margin: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #FEB963;
+    border: solid white;
+    color: white;
+    text-decoration: none;
+    transition: all ease 0.5s;
+}
+
+.buttons a{
+    color: white;
+    text-decoration: none;
+    transition: all ease 0.5s;
+}
+
+.buttons a:hover{
+    font-size: 105%;
+    transition: all ease 0.5s;
+}
+
+
+/* table styles */
+table {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    text-align: center;
+}
+
+table h2 {
+    margin-bottom: 20px;
+}
+
+table table {
+    width: 100%;    
+
+}
+
+
+table table th {
+    width: 25%;
+    text-align: left;
+}
+
+table input[type="text"],
+table textarea,
+table input[type="number"] {
+    resize: none;
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.images{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.images .image{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: solid black;
+    overflow: hidden;
+    width: 80%;
+    border-radius: 20px;
+}
+
+
+.images .image .minislide{
+    height: 100%;
+    position: relative;
+}
+
+.minislide img{
+    height: 100px;
+    border-radius: 20px;
+}

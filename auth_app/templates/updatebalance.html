@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/editprofile.css'%}">
+    <title>Update Balance</title>
+</head>
+<body>
+<body>
+    <div class="container">
+        <div class="container">
+            <header>  Balance </header>
+            <form method="post" action="{% url 'updateBalance' %}">
+                {% csrf_token %} 
+                <label for="id_balance">Balance</label>
+                <input type="text" id="id_balance" name="balance" required>
+
+                <label for="id_password"> mot de passe</label>
+                <input type="password" id="id_password" name="password" placeholder="Saisir Votre Mot de passe" required>
+ 
+                <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>&nbsp;
+
+                <p class="link"><a href="{% url 'profile' id_user=id %}">annuler</a></p>
+            </form>
+            {% if messages %}
+            <ul class="errorlist">
+                {% for message in messages %}
+                <li class="error">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
