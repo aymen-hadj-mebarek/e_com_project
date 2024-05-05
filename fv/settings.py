@@ -156,6 +156,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
 
-
-EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
-ANYMAIL = {"SENDINBLUE_API_KEY": "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"}
